@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: gym
+  name: gym
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gym
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: gym
+    spec:
+      containers:
+      - image: nginx
+        name: nginx
+        resources: {}
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - name: html
+          mountPath: /usr/share/nginx/html/index.html
+          subPath: index.html
+      volumes:
+      - name: html
+        configMap: 
+          name: gym-html
+status: {}
