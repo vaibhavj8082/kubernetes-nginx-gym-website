@@ -35,6 +35,25 @@ This project demonstrates how to:
 ---
 
 ## 🏗️ Architecture
+User Browser
+
+│
+
+▼
+
+NodePort Service (port: 30080)
+
+│
+
+▼
+
+NGINX Pod (Deployment)
+
+│  Volume Mount
+
+▼
+
+ConfigMap (index.html)
 
 
 
@@ -54,6 +73,9 @@ This project demonstrates how to:
 
 Create your gym website HTML file:
 
+```bash
+vi index.html
+```
 ---
 
 ### Step 2: Create ConfigMap
